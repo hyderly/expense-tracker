@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useContext} from "react";
+
+// import components
+import Header from "./components/header";
+import Balance from "./components/balance";
+import ExpenseIncome from "./components/expenseIncome";
+import ItemList from "./components/itemList";
+import Form from "./components/form";
+
+// context
+import GlobalContext from './context';
+
+// utilities
+import {balanceAmount} from './utilities';
+import {expense} from './utilities'
+import {income} from './utilities'
+
+import "./App.css";
 
 function App() {
+  const {transactionList} = useContext(GlobalContext);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="container">
+        <Balance balance={balanceAmount(transactionList)}/>
+        <ExpenseIncome income={income(transactionList)} expense={expense(transactionList)}/>
+        <ItemList items={transactionList}/>
+        <Form />
+      </div>
     </div>
   );
 }

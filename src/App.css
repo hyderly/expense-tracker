@@ -49,12 +49,12 @@ h4 {
   margin: 20px 0;
 }
 
-.inc-exp-container > div {
+.inc-exp-container>div {
   flex: 1;
   text-align: center;
 }
 
-.inc-exp-container > div:first-of-type {
+.inc-exp-container>div:first-of-type {
   border-right: 1px solid #dedede;
 }
 
@@ -148,4 +148,12 @@ input[type="number"] {
 
 .list li:hover .delete-btn {
   opacity: 1;
+}
+
+.red {
+  color: rgb(158, 50, 50);
+}
+
+.green {
+  color: rgb(84, 245, 138)
 }

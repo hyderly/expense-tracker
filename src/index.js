@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
+import BudegetProvider from './providers/budegt.provider';
+
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <BudegetProvider>
+    <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </BudegetProvider>,
   document.getElementById('root')
 );
 

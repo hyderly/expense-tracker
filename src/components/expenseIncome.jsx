@@ -6,13 +6,13 @@ const ExpenseIncome = ({expense, income}) => {
       <div>
         <h4>Income</h4>
         <p  className="money plus">
-          +${income.toFixed(2)}
+          +${income}
         </p>
       </div>
       <div>
         <h4>Expense</h4>
         <p  className="money minus">
-          -${Math.abs(expense).toFixed(2)}
+          -${Math.abs(expense)}
         </p>
       </div>
     </div>

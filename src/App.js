@@ -7,25 +7,21 @@ import ExpenseIncome from "./components/expenseIncome";
 import ItemList from "./components/itemList";
 import Form from "./components/form";
 
-// context
-import GlobalContext from './context';
+// providers
 
-// utilities
-import {balanceAmount} from './utilities';
-import {expense} from './utilities'
-import {income} from './utilities'
+import {BudgetContext} from './providers/budegt.provider';
 
 import "./App.css";
 
 function App() {
-  const {transactionList} = useContext(GlobalContext);
+  const {balance, income, expense, transactions} = useContext(BudgetContext)
   return (
     <div className="App">
       <Header />
       <div className="container">
-        <Balance balance={balanceAmount(transactionList)}/>
-        <ExpenseIncome income={income(transactionList)} expense={expense(transactionList)}/>
-        <ItemList items={transactionList}/>
+        <Balance balance={balance}/>
+        <ExpenseIncome income={income.toFixed(2)} expense={expense.toFixed(2)}/>
+        <ItemList items={transactions}/>
         <Form />
       </div>
     </div>
